@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MockDevice": {
+      "commandName": "Project",
+      "commandLineArgs": "b6:a2:5d:a5:32:cb term1"
+    }
+  }
+}

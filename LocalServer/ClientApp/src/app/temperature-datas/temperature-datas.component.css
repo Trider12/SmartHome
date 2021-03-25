@@ -1,0 +1,10 @@
+h1, h2 {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.centered-table {
+    margin: auto;
+    width: 30%;
+}

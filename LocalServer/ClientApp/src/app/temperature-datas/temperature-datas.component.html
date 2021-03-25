@@ -1,0 +1,52 @@
+<p *ngIf="!(temperatureDatas | async)"><em>Loading...</em></p>
+
+<h2>Current Temperature</h2>
+
+<table class="table table-striped text-center centered-table">
+  <tr *ngFor="let data of (currentTemperatureData | async);">
+    <td>
+      <h1><label class="badge">{{data.name}}</label></h1>
+    </td>
+    <td>
+      <h1><label class="badge badge-success">{{data.temperature | number}}
+          °C</label></h1>
+    </td>
+  </tr>
+</table>
+
+<br>
+<br>
+
+<h2>Latest Logs</h2>
+<br>
+<table class="table table-bordered table-responsive-md table-striped text-center">
+  <tr>
+    <th>Device Name</th>
+    <th>Mac Address</th>
+    <th>Temperature</th>
+    <th>Time</th>
+    <th>
+      <button class="btn btn-success btn-block float-right" (click)="load()">Refresh</button>
+    </th>
+  </tr>
+
+  <tr *ngFor="let data of (temperatureDatas | async);">
+    <td>
+      <label>{{data.name}}</label>
+    </td>
+    <td>
+      <label>{{data.macAddress}}</label>
+    </td>
+    <td>
+      <label>{{data.temperature}} °C</label>
+    </td>
+    <td>
+      <label>{{data.time}}</label>
+    </td>
+    <td>
+      <button type="button" color="red" class="btn btn-danger btn-block float-right" (click)="delete(data.id)">
+        Delete
+      </button>
+    </td>
+  </tr>
+</table>
