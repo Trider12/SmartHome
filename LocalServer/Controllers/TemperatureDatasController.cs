@@ -55,7 +55,7 @@ namespace LocalServer.Controllers
         [Route("last")]
         public async Task<ActionResult<IEnumerable<TemperatureData>>> GetLastData()
         {
-            var keys = _context.Data.GroupBy(x => x.MacAddress).Select(x => x.Key).ToList();
+            var keys = await _context.Data.GroupBy(x => x.MacAddress).Select(x => x.Key).ToListAsync();
 
             return keys.Select(key => _context.Data.Where(x => x.MacAddress == key).OrderByDescending(x => x.Time).First()).ToList();
         }
